@@ -10,6 +10,40 @@
 
 **This list, also known as BADBOOL, was started in September 2017 and was most recently updated on August 27, 2026 to fix the dead link for Unite4 Heritage and update the link for SpyFly.
 
+## Use with AI assistants
+
+The complete data-broker inventory and opt-out links are maintained below. Use
+the assistant-specific prompt with the matching tool:
+
+- [Claude prompt](prompt/remove-my-information-claude.md)
+- [GitHub Copilot prompt](prompt/remove-my-information-copilot.md)
+- [Gemini prompt](prompt/remove-my-information-gemini.md)
+
+Each prompt uses [`skill/privacy.md`](skill/privacy.md), reports confirmed
+matches and opt-out links from this README, and requires approval for each
+individual removal request. Never share passwords, Social Security numbers, or
+unredacted identity-document numbers.
+
+### Cron and scheduled rechecks
+
+Use a scheduled job for rechecking broker listings and generating a report or
+approval queue for each provider. Do not schedule unattended browser
+submissions: removal forms may request sensitive information, captchas, phone
+verification, email confirmation, payment, or an identity document. A safe
+workflow is:
+
+1. Run one isolated job per provider with a persistent status file.
+2. Compare the current result with the previous result and record new or
+   returned listings.
+3. Create a pending request containing the broker, profile URL, opt-out URL,
+	minimum required fields, and risk flags.
+4. Review and approve each pending request manually.
+5. Submit it interactively, then record the confirmation and schedule a later
+	recheck, typically in 30 to 45 days.
+
+Cron should invoke a local audit or report generator, not an AI prompt that has
+unrestricted access to personal data or can submit forms without approval.
+
 BADBOOL is and will always be free, but you are welcome to [buy me a coffee](https://ko-fi.com/kofisupporter11745)! 💕☕️ If you’d like to learn more about me and my other work, feel free to check out my website, [Yael Writes](https://yaelwrites.com/).
 
 How to use this page: We recommend opting out of high-priority sites first. If you only have the time and patience for 14, start with sites marked 💐. If you can do 20 (total), go to sites marked ☠ as well. Once you’ve completed all of those, you can start to work your way through the rest of the list. We’ve reordered this list by priority for your convenience. 
